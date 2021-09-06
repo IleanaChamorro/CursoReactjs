@@ -7,10 +7,10 @@ import RenderizadoCondional from './components/renderizadocondicional';
 import RenderizadoElementos from './components/RenderizadoElementos';
 import {EventosES7, MasSobreEventos} from './components/Eventos';
 import EventosES6 from './components/Eventos';
-import CicloVida from './components/CicloVida';
 import ComunicacionComponentes from './components/ComunicacionComponentes.js';
 import AjaxApis from './components/AjaxApis';
 import ContadorHooks from './components/ContadorHooks';
+import ScrollHooks from './components/ScrollHooks';
 function App() {
   return (
     <div className="App">
@@ -55,13 +55,13 @@ function App() {
           <hr></hr>
           <MasSobreEventos/>
           <hr/>
-          <CicloVida/>
-          <hr/>
           <ComunicacionComponentes/>
           <hr/>
           <AjaxApis></AjaxApis>
           <hr/>
           <ContadorHooks/>
+          <hr/>
+          <ScrollHooks/>
        </section>
       </header>
     </div>
