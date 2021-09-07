@@ -11,6 +11,7 @@ import ComunicacionComponentes from './components/ComunicacionComponentes.js';
 import AjaxApis from './components/AjaxApis';
 import ContadorHooks from './components/ContadorHooks';
 import ScrollHooks from './components/ScrollHooks';
+import RelojHooks from './components/RelojHooks';
 function App() {
   return (
     <div className="App">
@@ -62,6 +63,8 @@ function App() {
           <ContadorHooks/>
           <hr/>
           <ScrollHooks/>
+          <hr/>
+          <RelojHooks/>
        </section>
       </header>
     </div>
