@@ -7,7 +7,7 @@ export default function ScrollHooks(){
 
     //Cada vez que se renderiza, ejecuta todo lo que este dentro de la funcion
     useEffect(() => {
-        console.log('Moviendo Scroll');
+        //console.log('Moviendo Scroll');
 
         const detectarScroll = () => setScrollY(window.pageYOffset);
         
@@ -19,19 +19,19 @@ export default function ScrollHooks(){
     }, [scrollY]);
 
     useEffect(() => {
-        console.log('Fase de Montaje');
+        //console.log('Fase de Montaje');
         //Esta porcion de codigo solo se ejecuta cuando la variable cambie
     }, [scrollY]);
 
     //Si el useEffect no tiene definido la lista de dependencias va a actuar como un componentDidUpdate(se ejecuta cada vez que se renderice el componente)
     useEffect(() => {
-        console.log('Fase de Actualizacion');
+        //console.log('Fase de Actualizacion');
     });
 
     useEffect(() => {
         //Internamente al usar un return, useEffect usa la fase de desmontaje
         return () => {
-            console.log('Fase Desmontaje');    
+            //console.log('Fase Desmontaje');    
         }
     });
     return(

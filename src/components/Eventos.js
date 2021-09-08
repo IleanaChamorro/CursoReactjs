@@ -12,8 +12,8 @@ export default class EventosES6 extends Component{
     };
     //Metodo
     sumar(e){
-        console.log("Sumando");
-        console.log(this);
+        //console.log("Sumando");
+       // console.log(this);
         //lo que realmente hace la funcion sumar
         this.setState({
             contador: this.state.contador + 1,
@@ -21,8 +21,8 @@ export default class EventosES6 extends Component{
     }
 
     restar(e){
-        console.log("Restar");
-        console.log(this);
+        //console.log("Restar");
+        //console.log(this);
         this.setState({
             contador: this.state.contador - 1,
         });
@@ -54,8 +54,8 @@ export class EventosES7 extends Component{
     //Arrow Functions
     //No es necesario el bind, el this que reconocen es a la clase a la que pertenecen
     sumar = (e) => {
-        console.log("Sumando");
-        console.log(this);
+        //console.log("Sumando");
+        //console.log(this);
         //lo que realmente hace la funcion sumar
         this.setState({
             contador: this.state.contador + 1,
@@ -63,8 +63,8 @@ export class EventosES7 extends Component{
     }
 
     restar = (e) => {
-        console.log("Restar");
-        console.log(this);
+        //console.log("Restar");
+        //console.log(this);
         this.setState({
             contador: this.state.contador - 1,
         });
@@ -90,12 +90,12 @@ function Boton(props){
 export class MasSobreEventos extends Component{
     //Manejador de eventos
     handleClick = (e, mensaje) => {
-        console.log(e);
+        //console.log(e);
         //Acceder al evento original
-        console.log(e.nativeEvent);
+        //console.log(e.nativeEvent);
         //la consola devuelve button
-        console.log(e.target);
-        console.log(mensaje);
+        //console.log(e.target);
+        //console.log(mensaje);
     } 
     render(){
         return(
