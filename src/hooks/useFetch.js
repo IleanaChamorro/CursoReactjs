@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 
 export const useFetch = (url) => {
-    {/*Control datos que ingresan */}
+   
     const [data, setData] = useState(null);
     //informacion pendiente, empieza con valor true
     const [isPending, setIsPending] = useState(true);
@@ -19,11 +19,11 @@ export const useFetch = (url) => {
 
             //si la respuesta es falsa (hubo un error)
             if(!res.ok){
-                throw{
-                    err:true,
-                    status: res.status,
-                    statusText: !res.statusText ? "Ocurrio un error" : res.statusText,
-                };
+               // throw{
+                 //   err:true,
+                   // status: res.status,
+                    //statusText: !res.statusText ? "Ocurrio un error" : res.statusText,
+                //};
             }
             //Si existe una petición, la espera y convierte en formato json
             let data = await res.json();
