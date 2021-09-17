@@ -17,6 +17,7 @@ import HooksPersonalizados from './components/HooksPersonalizados';
 import Referencia from './components/Referencia';
 import Formularios from './components/Formularios';
 import Estilos from './components/Estilos';
+import ComponentsEstilizados from './components/ComponentesEstilizados';
 function App() {
   return (
     <div className="App">
@@ -80,6 +81,8 @@ function App() {
           <Formularios/>
           <hr/>
           <Estilos/>
+          <hr/>
+          <ComponentsEstilizados/>
           </section>
       </header>
     </div>
