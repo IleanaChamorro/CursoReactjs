@@ -15,7 +15,8 @@ import RelojHooks from './components/RelojHooks';
 import AjaxHooks from './components/AjaxHooks';
 import HooksPersonalizados from './components/HooksPersonalizados';
 import Referencia from './components/Referencia';
-import Formularios from './components/Formularios'
+import Formularios from './components/Formularios';
+import Estilos from './components/Estilos';
 function App() {
   return (
     <div className="App">
@@ -77,6 +78,8 @@ function App() {
           <Referencia/>
           <hr/>
           <Formularios/>
+          <hr/>
+          <Estilos/>
           </section>
       </header>
     </div>
