@@ -8,9 +8,9 @@ const CrudTable = ({data}) => {
             <table>
                 <thead>
                     <tr>
-                        <th>Nombre: </th>
-                        <th>Team: </th>
-                        <th>Acciones: </th>
+                        <th>Nombre</th>
+                        <th>Team</th>
+                        <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>

@@ -1,20 +1,47 @@
 import React, { useState, useEffect } from 'react';
 
-const initialForm = {
+const forminicial = {
     name: "",
     team: "",
     id: null,
 }
 
 
-const CrudForm = () => {
-    const [form, setForm] = useState(initialForm);
+const CrudForm = ({crearData, actData, dataAEditar, setDataAEditar}) => {
+    const [form, setForm] = useState(forminicial);
 
-    const handleChange = (e) => {}
+    //Agregar Nuevo Piloto
+    const handleChange = (e) => {
+        setForm({
+            ...form,
+            [e.target.name]:e.target.value,
 
-    const handleSubmit = (e) => {}
+        });
+    };
 
-    const handleReset = (e) => {}
+    //Envio Formulario
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        if(!form.name || !form.team){
+            alert("Faltan Datos");
+            return;
+        }
+
+        if(form.id === null){
+            crearData(form);
+        }else{
+            actData(form);
+        }
+
+        handleReset();
+    };
+
+    //Limpiar Formulario
+    const handleReset = (e) => {
+        setForm(forminicial);
+        setDataAEditar(null);
+    };
 
     return (
         <div>
