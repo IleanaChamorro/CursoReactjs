@@ -39,7 +39,14 @@ const CrudApp = () => {
         data.id = Date.now();
         setDb([...db, data]);
     };
-    const actData = (data) => {};
+
+
+    const actData = (data) => {
+        //Si el elemento que recibe es exactamente igual al que recibe, lo reemplaza por la nueva data
+        let nuevaData = db.map(el => el.id === data.id ? data : el);
+        //Actualizacion db con nueva data
+        setDb(nuevaData);
+    };
     const borrarData = (id) => {};
 
     return (

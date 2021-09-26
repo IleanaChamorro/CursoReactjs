@@ -10,6 +10,15 @@ const forminicial = {
 const CrudForm = ({crearData, actData, dataAEditar, setDataAEditar}) => {
     const [form, setForm] = useState(forminicial);
 
+    //Funcion Ejecutada cuando detecta que la variable DataAEditar cambie
+    useEffect(() => {
+        if(dataAEditar){
+            //Envio Datos del formulario para editar
+            setForm(dataAEditar);
+        }else{
+            setForm(forminicial);
+        }
+    }, [dataAEditar])
     //Agregar Nuevo Piloto
     const handleChange = (e) => {
         setForm({
@@ -45,7 +54,7 @@ const CrudForm = ({crearData, actData, dataAEditar, setDataAEditar}) => {
 
     return (
         <div>
-            <h3>Agregar</h3>
+            <h3>{dataAEditar ? "Editar" : "Agregar"}</h3>
             <form onSubmit={handleSubmit}>
                 <input 
                 type="text"
