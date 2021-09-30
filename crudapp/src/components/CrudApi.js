@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { helpHttp } from '../helpers/helpHttp';
 import CrudForm from './CrudForm';
 import CrudTable from './CrudTable';
 
@@ -7,6 +8,22 @@ const CrudApi = () => {
     const [db, setDb] = useState([]);
     const [dataAEditar, setDataAEditar] = useState(null);
 
+    let api = helpHttp();
+
+    //endpoint url
+    let url = "http://localhost:5000/pilotos";
+
+    useEffect(() => {
+        api.get(url).then((res) => {
+            //console.log(res);
+            if(!res.err){
+                setDb(res);
+            }else{
+                setDb(null);
+            }
+        });
+    }, []);
+    
     const crearData = (data) => {
         data.id = Date.now();
         setDb([...db, data]);

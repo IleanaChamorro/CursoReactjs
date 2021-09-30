@@ -28,7 +28,7 @@ export const helpHttp = () => {
 
         return fetch(endpoint, options)
         .then((res) => 
-            res.ok
+        res.ok
             ? res.json()
             : Promise.reject({
                 err:true,
