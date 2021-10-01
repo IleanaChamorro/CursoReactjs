@@ -2,25 +2,35 @@ import React, { useState, useEffect } from 'react';
 import { helpHttp } from '../helpers/helpHttp';
 import CrudForm from './CrudForm';
 import CrudTable from './CrudTable';
+import Loader from './Loader';
+import Message from './Message';
 
 
 const CrudApi = () => {
-    const [db, setDb] = useState([]);
+    const [db, setDb] = useState(null);
     const [dataAEditar, setDataAEditar] = useState(null);
+    const [error, setError] = useState(null);
+    const [carga, setCarga] = useState(false);
 
     let api = helpHttp();
 
     //endpoint url
-    let url = "http://localhost:5000/pilotos";
+    let url = "http://localhost:5000/piloto";
 
     useEffect(() => {
+        //Antes de hacer la peticion, 'setCarga' actualiza a true, para visualizar el loader
+        setCarga(true);
         api.get(url).then((res) => {
-            //console.log(res);
             if(!res.err){
                 setDb(res);
+                //Si no existe error por parte del helper
+                setError(null);
             }else{
                 setDb(null);
+                setError(res);
             }
+            //Luego de la peticion 'setCarga' vuelve a falso
+            setCarga(false);
         });
     }, []);
     
@@ -61,11 +71,19 @@ const CrudApi = () => {
                 dataAEditar={dataAEditar}
                 setDataAEditar={setDataAEditar}
                 />
+                {/* Solo renderiza cuando 'carga' es True */}
+                {carga && <Loader/>}
+                {/* Cuando exista un error*/}
+                {error && <Message 
+                msg={`Error ${error.status}: ${error.statusText}`} bgColor="#dc3545" />}
+                {/* Cuando database tenga algo*/}
+                {db && (
                 <CrudTable 
                 data={db}
                 setDataAEditar={setDataAEditar}
                 borrarData={borrarData}
                 />
+                )}
             </article>
         </div>
     )
