@@ -15,7 +15,7 @@ const CrudApi = () => {
     let api = helpHttp();
 
     //endpoint url
-    let url = "http://localhost:5000/piloto";
+    let url = "http://localhost:5000/pilotos";
 
     useEffect(() => {
         //Antes de hacer la peticion, 'setCarga' actualiza a true, para visualizar el loader
@@ -32,11 +32,26 @@ const CrudApi = () => {
             //Luego de la peticion 'setCarga' vuelve a falso
             setCarga(false);
         });
-    }, []);
+    }, [url]);
     
     const crearData = (data) => {
         data.id = Date.now();
-        setDb([...db, data]);
+
+        let options = {
+            body: data, 
+            headers: {"content-type": "application/json"},
+        };
+        //Metodo post de Fake Api, body obtenido de la data, dependiendo si es exito o fracaso devuelve un obj
+        api.post(url, options).then((res) => {
+            console.log(res);
+
+            //En caso de exito actualiza 'db' con lo que tenga la data
+            if(!res.err){
+                setDb([...db, res]);
+            }else{
+                setError(res);
+            }
+        });
     };
 
 

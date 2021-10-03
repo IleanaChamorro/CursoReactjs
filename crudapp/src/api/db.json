@@ -1,32 +1,32 @@
 {
-    "pilotos":[
-        {
-            "id": 1,
-            "name": "Lewis Hamilton",
-            "team": "Mercedes"
-            },
-            {
-              "id": 2,
-              "name": "Valtteri Bottas",
-              "team":"Mercedes"
-            },
-            {
-              "id": 3,
-              "name": "Esteban Ocon",
-              "team": "Alpine"
-            },
-            {
-              "id": 4,
-              "name": "Fernando Alonso",
-              "team": "Alpine"
-            },
-            {
-              "id": 5,
-              "name": "Nikita Mazepin",
-              "team": "Haas"
-            }
-    ]
+  "pilotos": [
+    {
+      "id": 1,
+      "name": "Lewis Hamilton",
+      "team": "Mercedes"
+    },
+    {
+      "id": 2,
+      "name": "Valtteri Bottas",
+      "team": "Mercedes"
+    },
+    {
+      "id": 3,
+      "name": "Esteban Ocon",
+      "team": "Alpine"
+    },
+    {
+      "id": 4,
+      "name": "Fernando Alonso",
+      "team": "Alpine"
+    },
+    {
+      "id": 5,
+      "name": "Nikita Mazepin",
+      "team": "Haas"
+    },
+    {
+      "id": 6
+    }
+  ]
 }
-
-
-    
