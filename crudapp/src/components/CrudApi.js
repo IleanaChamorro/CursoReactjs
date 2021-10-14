@@ -37,29 +37,42 @@ const CrudApi = () => {
     const crearData = (data) => {
         data.id = Date.now();
 
-        let options = {
+        let options = { 
             body: data, 
             headers: {"content-type": "application/json"},
         };
-        //Metodo post de Fake Api, body obtenido de la data, dependiendo si es exito o fracaso devuelve un obj
+
         api.post(url, options).then((res) => {
             console.log(res);
-
-            //En caso de exito actualiza 'db' con lo que tenga la data
-            if(!res.err){
-                setDb([...db, res]);
-            }else{
-                setError(res);
-            }
-        });
+        if(!res.err){
+            setDb([...db, res]);
+        }else{
+         setError(res);
+        }
+      });
     };
 
 
     const actData = (data) => {
+        //union url api, trae data de formulario mas id
+        let endpoint = `${url}/${data.id}`;
         //Si el elemento que recibe es exactamente igual al que recibe, lo reemplaza por la nueva data
-        let nuevaData = db.map(el => el.id === data.id ? data : el);
         //Actualizacion db con nueva data
-        setDb(nuevaData);
+
+        let options = { 
+            body: data, 
+            headers: {"content-type": "application/json"},
+        };
+
+        api.put(endpoint, options).then((res) => {
+            console.log(res);
+        if(!res.err){
+            let nuevaData = db.map(el => el.id === data.id ? data : el);
+            setDb(nuevaData);
+        }else{
+         setError(res);
+        }
+      });
     };
     const borrarData = (id) => {
         //Consultar si el usuario esta seguro de borrar 
@@ -69,8 +82,19 @@ const CrudApi = () => {
 
         //Accion de Borrar
         if(borrar){
-            let nuevaData = db.filter(el => el.id !== id);
-            setDb(nuevaData);
+            //Eliminar registro api
+            let endpoint = `${url}/${id}`;
+            let options = {
+                headers: { "content-type":"application/json"}
+            }
+            api.del(endpoint, options).then((res) => {
+                if(!res.err){
+                    let nuevaData = db.filter(el => el.id !== id);
+                    setDb(nuevaData);
+                }else{
+                 setError(res);
+                }
+            })
         }else{
             return;
         }

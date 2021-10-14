@@ -14,7 +14,7 @@ export const helpHttp = () => {
 
         //Si el usuario especifico las cabeceras de esta peticion, se crea un nuevo objeto que mezcla cabeceras por defecto mas las del usuario, cuando no indica "DEFAULT"
         options.headers = options.headers
-        ? {...defaultHeader, ...options.header} 
+        ? {...defaultHeader, ...options.headers} 
         :  defaultHeader;
 
         //Peticiones con datos(Conversion objeto a cadena)
@@ -22,7 +22,6 @@ export const helpHttp = () => {
         //Cuando el body tenga el valor de falso lo elimina
         if(!options.body) delete options.body;
 
-        console.log(options);
         //Si despues de 3seg no hay respuesta por parte del servidor, se cancela la peticion 
         setTimeout(() => controller.abort(), 3000);
 
